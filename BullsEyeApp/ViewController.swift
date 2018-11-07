@@ -13,9 +13,14 @@ class ViewController: UIViewController {
     
     var currentValue : Int = 0 // slider değer tutucu
     
+    @IBOutlet weak var slider : UISlider! // slider nesnesi
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let roundedValue = slider.value.rounded() // double değeri int değere göre yuvarladı.
+        currentValue = Int(roundedValue) // yuvarlanan değeri atadık.
+
     }
     
 
@@ -46,9 +51,7 @@ class ViewController: UIViewController {
     @IBAction func sliderMoved(_ slider: UISlider){
 
         print("The value of the slider is now : \(slider.value)") // slider değeri
-        let roundedValue = slider.value.rounded() // double değeri int değere göre yuvarladı.
-        print("The rounded value of the slider is now : \(roundedValue)") // yuvarlanmış hali
-        currentValue = Int(roundedValue) // yuvarlanan değeri atadık.
+       // print("The rounded value of the slider is now : \(roundedValue)") // yuvarlanmış hali
         
     }
     
