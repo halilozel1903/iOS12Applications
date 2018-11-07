@@ -30,19 +30,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func knockKnock(){
-        
-        // print("Hello iOS 12 Programming Course")
-        
-        let alert = UIAlertController(title: " Knock Knock !", message: "Who's There", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Little old lady", style: .default, handler: nil)
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
+   
     
 
 
