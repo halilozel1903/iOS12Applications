@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     
     var currentValue : Int = 0 // slider değer tutucu
+    var targetValue : Int = 0
     
     @IBOutlet weak var slider : UISlider! // slider nesnesi
     
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
 
         let roundedValue = slider.value.rounded() // double değeri int değere göre yuvarladı.
         currentValue = Int(roundedValue) // yuvarlanan değeri atadık.
-
+        startNewRound()
     }
     
 
@@ -30,7 +31,7 @@ class ViewController: UIViewController {
         
         // print("Hello iOS 12 Programming Course")
         
-        let message = "The value of the slider is now : \(currentValue)" // değeri ekranda gösterme
+        let message = "The value of the slider is now : \(currentValue)"+"\n The target value is : \(targetValue)" // değeri ekranda gösterme
         
         // alert nesnesi tanımlandı.
         let alert = UIAlertController(title: "Hello World !", message: message, preferredStyle: .alert)
@@ -44,15 +45,28 @@ class ViewController: UIViewController {
         // alerti ekranda gösterme
         present(alert, animated: true, completion: nil)
         
+        startNewRound()
+        
     }
     
     
     // slider işlemlerinin yapıldığı fonksiyon
     @IBAction func sliderMoved(_ slider: UISlider){
 
-        print("The value of the slider is now : \(slider.value)") // slider değeri
+        let roundedValue = slider.value.rounded()
+        currentValue = Int(roundedValue)
+        
+       // print("The value of the slider is now : \(slider.value)") // slider değeri
        // print("The rounded value of the slider is now : \(roundedValue)") // yuvarlanmış hali
         
+    }
+    
+    // yeni slider ile  değeri ne olacak onu belirtiyoruz.
+    func startNewRound(){
+        
+        targetValue = Int.random(in: 1...100)
+        currentValue = 50
+        slider.value = Float(currentValue)
     }
     
 
