@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var targetValue : Int = 0
     
     @IBOutlet weak var slider : UISlider! // slider nesnesi
+    @IBOutlet weak var targetLabel : UILabel! // label nesnesi
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,12 @@ class ViewController: UIViewController {
         targetValue = Int.random(in: 1...100)
         currentValue = 50
         slider.value = Float(currentValue)
+        updateLabels()
+    }
+    
+    // label değerini güncelleme
+    func updateLabels(){
+        targetLabel.text = String(targetValue)
     }
     
 
